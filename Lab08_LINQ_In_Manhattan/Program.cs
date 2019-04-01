@@ -23,18 +23,42 @@ namespace Lab08_LINQ_In_Manhattan
             // Instantiate object from deserialized JSON
             RootObject json = JsonConvert.DeserializeObject<RootObject>(data);
 
+            //////////////////////////////////////////////
             // Output all neighborhoods from data
+            //////////////////////////////////////////////
             var allNeighborhoodsQuery = from neighborhood in json.features
                                         select neighborhood.properties.neighborhood;
 
-            foreach (string neighborhood in allNeighborhoodsQuery)
+            //foreach (string neighborhood in allNeighborhoodsQuery)
+            //{
+            //    Console.WriteLine(neighborhood);
+            //}
+
+
+            //////////////////////////////////////////////
+            // Output all neighborhoods with names
+            //////////////////////////////////////////////
+            var neighborhoodsWithNames = from neighborhood in allNeighborhoodsQuery
+                                         where neighborhood != ""
+                                         orderby neighborhood ascending
+                                         select neighborhood;
+
+            //foreach (var item in neighborhoodsWithNames)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            //////////////////////////////////////////////
+            // Output all neighborhoods (with duplicate names removed)
+            //////////////////////////////////////////////
+
+            var uniqueNeighborhoods = neighborhoodsWithNames.Distinct();
+
+            foreach (var item in uniqueNeighborhoods)
             {
-                Console.WriteLine(neighborhood);
+                Console.WriteLine(item);
             }
-
-            //TODO Get neighborhoods and neighborhood names from deserialized JSON
-            //TODO Create classes for Neighborhood (and Name)?
-
 
             Console.ReadLine();
         }
