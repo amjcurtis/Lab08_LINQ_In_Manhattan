@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Lab08_LINQ_In_Manhattan.Classes;
 using Newtonsoft.Json;
 
@@ -10,22 +11,26 @@ namespace Lab08_LINQ_In_Manhattan
         static void Main(string[] args)
         {
 
-            //TODO Use StreamReader to read in JSON and store in a variable
-            // Use StreamReader command "Read all lines" so it keeps formatting
-            // Then query the data under that variable name
             string path = "../../../../data.json";
 
+            // Use StreamReader to read in JSON and store in a variable
             var data = "";
-
             using (StreamReader sr = File.OpenText(path))
             {
                 data = sr.ReadToEnd();
             }
 
-            //TODO Deserialize JSON to object
+            // Instantiate object from deserialized JSON
             RootObject json = JsonConvert.DeserializeObject<RootObject>(data);
 
+            // Output all neighborhoods from data
+            var allNeighborhoodsQuery = from neighborhood in json.features
+                                        select neighborhood.properties.neighborhood;
 
+            foreach (string neighborhood in allNeighborhoodsQuery)
+            {
+                Console.WriteLine(neighborhood);
+            }
 
             //TODO Get neighborhoods and neighborhood names from deserialized JSON
             //TODO Create classes for Neighborhood (and Name)?
