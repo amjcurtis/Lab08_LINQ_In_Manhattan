@@ -60,6 +60,13 @@ namespace Lab08_LINQ_In_Manhattan
                 Console.WriteLine(item);
             }
 
+
+            //////////////////////////////////////////////
+            // Consolidate above queries into single query
+            //////////////////////////////////////////////
+
+
+
             Console.ReadLine();
         }
     }
