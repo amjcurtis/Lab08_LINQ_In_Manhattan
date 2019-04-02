@@ -28,6 +28,10 @@ namespace Lab08_LINQ_In_Manhattan
             var allNeighborhoodsQuery = from neighborhood in json.features
                                         select neighborhood.properties.neighborhood;
 
+            Console.WriteLine("");
+            Console.WriteLine("//////////////////////////////////////");
+            Console.WriteLine("// Here are ALL the neighborhoods:");
+            Console.WriteLine("//////////////////////////////////////\n");
             foreach (string neighborhood in allNeighborhoodsQuery)
             {
                 Console.WriteLine(neighborhood);
@@ -42,6 +46,10 @@ namespace Lab08_LINQ_In_Manhattan
                                          orderby neighborhood ascending
                                          select neighborhood;
 
+            Console.WriteLine("");
+            Console.WriteLine("////////////////////////////////////////////////////");
+            Console.WriteLine("// Here are all the neighborhoods that have names:");
+            Console.WriteLine("////////////////////////////////////////////////////\n");
             foreach (var item in neighborhoodsWithNames)
             {
                 Console.WriteLine(item);
@@ -52,6 +60,10 @@ namespace Lab08_LINQ_In_Manhattan
             // Output all neighborhoods (with duplicate names removed)
             var uniqueNeighborhoods = neighborhoodsWithNames.Distinct();
 
+            Console.WriteLine("");
+            Console.WriteLine("//////////////////////////////////////////////////////////////");
+            Console.WriteLine("// Here's the list of neighborhoods with duplicates removed:");
+            Console.WriteLine("//////////////////////////////////////////////////////////////\n");
             foreach (var item in uniqueNeighborhoods)
             {
                 Console.WriteLine(item);
@@ -65,6 +77,10 @@ namespace Lab08_LINQ_In_Manhattan
                                     .GroupBy(n => n.properties.neighborhood)
                                     .Select(group => group.First());
 
+            Console.WriteLine("");
+            Console.WriteLine("/////////////////////////////////////////////////////////////////");
+            Console.WriteLine("// Here are all the neighborhoods rendered using method syntax:");
+            Console.WriteLine("/////////////////////////////////////////////////////////////////\n");
             foreach (var item in consolidatedQuery)
             {
                 Console.WriteLine(item.properties.neighborhood);

@@ -1,4 +1,38 @@
-# Lab08_LINQ_In_Manhattan
+# Code 401 Lab 08: LINQ in Manhattan 
+#### Lab08_LINQ_In_Manhattan
+##### *Author: Andrew Curtis*
+
+## Description
+
+This is a C# console app that reads a JSON file containing data on neighborhoods in Manhattan, NYC, and uses LINQ to query and filter the data and then outputs the results to the console. 
+
+
+## Running This App on Your Computer
+
+To run this app yourself, clone this repository to your local machine.
+```
+$ git clone https://github.com/amjcurtis/Lab07_LendingLibrary.git
+```
+
+#### To run the program from Visual Studio:
+Select `File` -> `Open` -> `Project/Solution`
+
+Next navigate to the location where you cloned the repository.
+
+Double-click on the `Lab08_LINQ_In_Manhattan` directory.
+
+Then select and open `Lab08_LINQ_In_Manhattan.sln`
+
+
+## Visuals
+
+##### Neighborhood Data Before Filtering
+
+![Unfiltered Neighborhood Data](assets/UnfilteredNeighborhoodData.png)
+
+##### Neighborhood Names with Duplicates Removed
+
+![Neighborhood Names Filtered To Remove Duplicates](assets/DuplicatesRemoved.png)
 
 
 ## Attribution
