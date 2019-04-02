@@ -25,34 +25,31 @@ namespace Lab08_LINQ_In_Manhattan
 
             //////////////////////////////////////////////
             // Output all neighborhoods from data
-            //////////////////////////////////////////////
             var allNeighborhoodsQuery = from neighborhood in json.features
                                         select neighborhood.properties.neighborhood;
 
-            //foreach (string neighborhood in allNeighborhoodsQuery)
-            //{
-            //    Console.WriteLine(neighborhood);
-            //}
+            foreach (string neighborhood in allNeighborhoodsQuery)
+            {
+                Console.WriteLine(neighborhood);
+            }
 
 
             //////////////////////////////////////////////
             // Output all neighborhoods with names
-            //////////////////////////////////////////////
             var neighborhoodsWithNames = from neighborhood in allNeighborhoodsQuery
                                          where neighborhood != ""
+                                         //group neighborhood by neighborhood
                                          orderby neighborhood ascending
                                          select neighborhood;
 
-            //foreach (var item in neighborhoodsWithNames)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            foreach (var item in neighborhoodsWithNames)
+            {
+                Console.WriteLine(item);
+            }
 
 
             //////////////////////////////////////////////
             // Output all neighborhoods (with duplicate names removed)
-            //////////////////////////////////////////////
-
             var uniqueNeighborhoods = neighborhoodsWithNames.Distinct();
 
             foreach (var item in uniqueNeighborhoods)
@@ -63,11 +60,15 @@ namespace Lab08_LINQ_In_Manhattan
 
             //////////////////////////////////////////////
             // Consolidate above queries into single query
-            //////////////////////////////////////////////
+            var consolidatedQuery = json.features.Distinct()
+                                    .Where(neighborhood => neighborhood.properties.neighborhood != "")
+                                    .GroupBy(n => n.properties.neighborhood)
+                                    .Select(group => group.First());
 
-
-
-            Console.ReadLine();
+            foreach (var item in consolidatedQuery)
+            {
+                Console.WriteLine(item.properties.neighborhood);
+            }
         }
     }
 }
