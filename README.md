@@ -42,3 +42,12 @@ Then select and open `Lab08_LINQ_In_Manhattan.sln`
     * Instantiating my `RootObject` object after deserializing my JSON
     * Learning how to drill down into the deserialized JSON to access the properties I wanted
 * I also used an idea I got from Stack Overflow for how to use .GroupBy() and .First() with lambda expressions as an alternative to the .Distinct() method which doesn't work with 
+
+
+## Change Log
+
+##### v1.1
+
+`2019-03-29`: Built out class structure based on converted JSON, added comments/pseudocode for planning
+
+`2019-04-01`: Wrote code to read and deserialize JSON; wrote LINQ queries; added basic UI
