@@ -9,10 +9,5 @@ namespace Lab08_LINQ_In_Manhattan.Classes
     {
         public string type { get; set; }
         public List<Feature> features { get; set; }
-
-        //public IEnumerator GetEnumerator()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

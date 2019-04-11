@@ -42,7 +42,6 @@ namespace Lab08_LINQ_In_Manhattan
             // Output all neighborhoods with names
             var neighborhoodsWithNames = from neighborhood in allNeighborhoodsQuery
                                          where neighborhood != ""
-                                         //group neighborhood by neighborhood
                                          orderby neighborhood ascending
                                          select neighborhood;
 
